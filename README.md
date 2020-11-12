@@ -1,4 +1,4 @@
-# Bbox-label-Tool-large-img-Phyton35
+# Tkinter label tool
 Modificación de Bbox label tool for Python3.7
 
 Codigo fuente original: https://github.com/BASFProject-2018spring/BBox-Label-Tool-large-img

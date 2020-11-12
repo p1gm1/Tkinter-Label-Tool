@@ -28,7 +28,7 @@ en blanco.
 
 dibuje el rectangulo con el mouse, y nuevamente haga click izquierdo para seleccionar el segundo vertice.
 
-- Para cancelar el dibujo de la bounding box mientras se dibuja, presione la tecla '<Esc>'.
+- Para cancelar el dibujo de la bounding box mientras se dibuja, presione la tecla 'Esc'.
 
 - Para borrar un bounding box existente, seleccionelo de la listbox, y haga click en 'Delete'.
 

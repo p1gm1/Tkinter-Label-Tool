@@ -1,4 +1,4 @@
-# Bbox-label-Tool-large-img-Phyton35
+# Tkinter label tool
 Modificación de Bbox label tool for Python3.7
 
 Codigo fuente original: https://github.com/BASFProject-2018spring/BBox-Label-Tool-large-img
@@ -28,7 +28,7 @@ en blanco.
 
 dibuje el rectangulo con el mouse, y nuevamente haga click izquierdo para seleccionar el segundo vertice.
 
-- Para cancelar el dibujo de la bounding box mientras se dibuja, presione <Esc>.
+- Para cancelar el dibujo de la bounding box mientras se dibuja, presione la tecla 'Esc'.
 
 - Para borrar un bounding box existente, seleccionelo de la listbox, y haga click en 'Delete'.
 

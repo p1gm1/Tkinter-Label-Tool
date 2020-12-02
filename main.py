@@ -1,8 +1,6 @@
 #-------------------------------------------------------------------------------
 # Name:        Object bounding box label tool
 # Purpose:     Label object bboxes for ImageNet Detection data
-# Author:      Qiushi
-# Created:     06/06/2014
 
 #
 #-------------------------------------------------------------------------------
@@ -15,6 +13,7 @@ from tkinter import ttk
 import os
 import glob
 import random
+import csv
 
 # colors for the bboxes
 COLORS = ['red', 'blue', 'olive', 'teal', 'cyan', 'green', 'black']
@@ -71,6 +70,8 @@ class LabelTool():
         self.srcDirBtn.grid(row=0, column=0)
         self.ldBtn = Button(self.frame, text = "Load", command = self.loadDir)
         self.ldBtn.grid(row = 0, column = 2,sticky = W+E)
+        self.SvBtn = Button(self.frame, text="Save", command= self.saveDir)
+        self.SvBtn.grid(row = 1, column = 2, sticky= W+E)
 
         self.desDirBtn = Button(self.frame, text="Label output folder", command=self.selectDesDir)
         self.desDirBtn.grid(row=1, column=0)
@@ -351,12 +352,27 @@ class LabelTool():
     	self.currentLabelclass = self.classcandidate.get()
     	print('set label class to :',self.currentLabelclass)
 
-##    def setImage(self, imagepath = r'test2.png'):
-##        self.img = Image.open(imagepath)
-##        self.tkimg = ImageTk.PhotoImage(self.img)
-##        self.mainPanel.config(width = self.tkimg.width())
-##        self.mainPanel.config(height = self.tkimg.height())
-##        self.mainPanel.create_image(0, 0, image = self.tkimg, anchor=NW)
+    def saveDir(self):
+        base_dir=self.outDir
+        files_txt = os.listdir(base_dir)
+        rows=[]
+
+        for i in files_txt:
+
+            with open(os.path.join(base_dir, i), 'r', newline='') as f:
+                line = f.readline()
+                while line:
+                    #print(line)
+                    line += i[:-4]
+                    rows.append(line.split())
+                    line = f.readline() 
+        
+        with open(os.path.join(base_dir[:-(1+len(self.currentLabelclass))], 
+                               self.currentLabelclass+'.csv'), 
+                               'w', 
+                               newline='') as csv_file:
+            writer = csv.writer(csv_file)
+            writer.writerows(rows)
 
 if __name__ == '__main__':
     root = Tk()
